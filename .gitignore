@@ -10,12 +10,15 @@ node_modules/
 
 # Folders for inspiration & notes #
 ###################################
+_ignore/
 _moodboard/
 _notes/
 
 # Log files #
 #############
+logs/
 *.log
+npm-debug.log*
 
 # Packages #
 ############
@@ -35,3 +38,8 @@ _notes/
 *.ai
 *.eps
 *.psd
+
+# Runtime data
+pids
+*.pid
+*.seed
