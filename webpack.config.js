@@ -19,11 +19,20 @@ module.exports = {
     tls: 'empty'
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      use: [{
+    loaders: [
+      {
+        test: /\.js$/,
         loader: 'babel-loader'
-      }],
-    }],
-  }
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css!sass')
+      }
+    ]
+  },
+  plugins: [
+    new ExtractTextPlugin('dist/css/main.css', {
+      allChunks: true
+    })
+  ]
 };
