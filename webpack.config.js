@@ -19,20 +19,15 @@ module.exports = {
     tls: 'empty'
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css!sass')
-      }
-    ]
-  },
-  plugins: [
-    new ExtractTextPlugin('dist/css/main.css', {
-      allChunks: true
-    })
-  ]
+    rules: [{
+      test: /\.js$/,
+      use: [{
+        loader: 'babel-loader',
+        options: {
+          presets: [['es2015', { "modules": false }], 'stage-0', 'react'],
+          plugins: ['transform-decorators-legacy']
+        }
+      }],
+    }],
+  }
 };

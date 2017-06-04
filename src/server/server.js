@@ -18,10 +18,10 @@ const renderView = (req, appstate) => {
   );
 
   const HTML = `
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
         <title>MobX Test</title>
         <script>
           window.__INITIAL_STATE__ = ${ JSON.stringify({ appstate: appstate.toJson() }) };
@@ -32,33 +32,27 @@ const renderView = (req, appstate) => {
         <script type="application/javascript" src="/bundle.js"></script>
       </body>
     </html>
-  `;
+    `;
 
-  return HTML;
-};
+    return HTML;
+  };
 
-createServer((req, res) => {
-  if(req.url === '/bundle.js') {
-    res.writeHead(200, {'Content-Type': 'text/javascript'});
-
-    fs.createReadStream(path.resolve(__dirname, '../../dist/bundle.js')).pipe(res);
-  } else {
-    if(routes.has(req.url)) {
-      const appstate = new AppState();
-
-      appstate.addItem('foo');
-
-      appstate.addItem('bar');
-
-      res.write(renderView(req, appstate));
-
-      res.end();
+  createServer((req, res) => {
+    if(req.url === '/bundle.js') {
+      res.writeHead(200, { 'Content-Type': 'text/javascript' });
+      fs.createReadStream(path.resolve(__dirname, '../../dist/bundle.js')).pipe(res);
     } else {
-      res.writeHead(200, {'Content-Type': 'text/plain'});
+      if(routes.has(req.url)) {
+        const appstate = new AppState();
+        appstate.addItem('foo');
+        appstate.addItem('bar');
 
-      res.write('404 Not Found\n');
-
-      res.end();
+        res.write(renderView(req, appstate));
+        res.end();
+      } else {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.write('404 Not Found\n');
+        res.end();
+      }
     }
-  }
-}).listen(3000)
+  }).listen(3000)
