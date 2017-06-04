@@ -4,9 +4,9 @@
 [![Built by DEVERO](https://img.shields.io/badge/built%20by-DEVERO-brightgreen.svg?colorB=d30320)](https://alexdevero.com)
 
 # Alex Devero - ReactJS version
-Repo for my website on www.alexdevero.com rewritten to ReactJS (server-side rendering with MobX)
+Repo for my website on www.alexdevero.com rewritten to ReactJS (server-side rendering with MobX). Forked from [mobx-ssr-example](https://github.com/kuuup/mobx-ssr-example).
 
-## Build and run
+## Build and run (on localhost:3000)
 ```
 npm install
 npm run build:client
