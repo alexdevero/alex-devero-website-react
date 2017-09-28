@@ -3,8 +3,9 @@
   "version": "2.4.2",
   "description": "Personal portfolio of Alex Devero rewritten to ReactJS",
   "engines": {
-    "node": "7.x",
-    "npm": "4.x"
+    "node": ">=8.x",
+    "npm": ">=5.x",
+    "yarn": ">=1.x.x"
   },
   "keywords": [
     "ui"
