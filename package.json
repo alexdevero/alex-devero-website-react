@@ -33,9 +33,8 @@
     "url": "https://github.com/alexdevero/alex-devero-website-react.git"
   },
   "scripts": {
-    "build:client": "webpack -p",
-    "start": "node src/index.js",
-    "watch": "nodemon src/index.js"
+    "build": "cross-env NODE_ENV=production parcel build ./src/index.html --no-minify",
+    "start": "cross-env NODE_ENV=development parcel ./src/index.html -p 1337"
   },
   "dependencies": {
     "postcss-cssnext": "^3.0.2",
