@@ -1,5 +1,6 @@
 # Development folders & files #
 ###############################
+.cache/
 .tmp/
 dist/
 node_modules/
